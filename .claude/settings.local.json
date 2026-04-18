@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pip install --quiet whitenoise gunicorn)",
+      "Bash(python manage.py collectstatic --no-input --clear)",
+      "Bash(DEBUG=False ALLOWED_HOSTS=testserver python manage.py check --deploy)"
+    ]
+  }
+}

@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suryabhan Girase | Software Developer</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Suryabhan<span>.</span></a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+        <div class="home-container">
+            <div class="home-content">
+                <p class="home-greeting">Hello, I'm</p>
+                <h3 class="home-name">Suryabhan Girase</h3>
+                <h2 class="home-title">I'm a <span class="typed-text">Software Developer</span></h2>
+                <p class="home-description">
+                    AI/ML and Python Full Stack Developer with strong skills in building intelligent and scalable applications. Passionate about solving real-world problems using machine learning and modern web technologies.
+
+.
+                </p>
+                <div class="home-buttons">
+                    <a href="#contact" class="btn btn-primary">Hire Me</a>
+                    <a href="https://drive.google.com/file/d/1b7icnyt4NLO9Cr150AzV-E24jF15B7xV/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Resume</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/suryabhan-rajput-862151284/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Suryabhan8096" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="suryabhangirase777@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="home-image">
+                <div class="image-wrapper">
+                    <img src="{% static 'portfolio/images/profile.png' %}" alt="Suryabhan Girase">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="section-divider"></div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <img src="{% static 'portfolio/images/profile.png' %}" alt="Suryabhan Girase">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Software Developer & Tech Enthusiast</h3>
+                    <p>
+                        I am a passionate Software Developer with expertise in building robust web applications
+                        and intelligent solutions. My journey in technology is driven by curiosity and a love
+                        for solving complex problems through clean, efficient code.
+                    </p>
+                    <p>
+                        With strong skills in Python, Django, and modern web technologies, I focus on creating
+                        impactful digital products. I'm constantly learning and exploring new frameworks,
+                        machine learning techniques, and best practices to deliver excellent results.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item"><strong>Name:</strong> Suryabhan Girase</div>
+                        <div class="info-item"><strong>Email:</strong>suryabhangirase777@gmail.com</div>
+                        <div class="info-item"><strong>Role:</strong> Software Developer/AI/ML Engineer</div>
+                        <div class="info-item"><strong>Availability:</strong>immediate </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="section-divider"></div>
+            <div class="skills-grid">
+                {% for skill in skills %}
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="{{ skill.icon }}"></i></div>
+                    <h3>{{ skill.name }}</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="{{ skill.level }}"></div>
+                    </div>
+                    <span class="skill-percent">{{ skill.level }}%</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title">My <span>Projects</span></h2>
+            <div class="section-divider"></div>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <div class="project-card">
+                    <div class="project-icon"><i class="{{ project.icon }}"></i></div>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <div class="project-tech">
+                        {% for tech in project.technologies %}
+                            <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services-section">
+        <div class="container">
+            <h2 class="section-title">My <span>Services</span></h2>
+            <div class="section-divider"></div>
+            <div class="services-grid">
+                {% for service in services %}
+                <div class="service-card">
+                    <div class="service-icon"><i class="{{ service.icon }}"></i></div>
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education-section">
+        <div class="container">
+            <h2 class="section-title">My <span>Education</span></h2>
+            <div class="section-divider"></div>
+            <div class="timeline">
+                {% for edu in education %}
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="{{ edu.icon }}"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">{{ edu.year }}</span>
+                        {% if edu.link %}
+                        <h3><a href="{{ edu.link }}" target="_blank" rel="noopener noreferrer">{{ edu.degree }}</a></h3>
+                        {% else %}
+                        <h3>{{ edu.degree }}</h3>
+                        {% endif %}
+                        <p>{{ edu.institution }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact <span>Me</span></h2>
+            <div class="section-divider"></div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have a project in mind or just want to say hello? Feel free to reach out!</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>suryabhangirase777@gmail.com</p>
+                        </div>
+                    </div>  
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4><a href="https://www.linkedin.com/in/suryabhan-rajput-862151284/?skipRedirect=true" target="_blank">LinkedIn</a></h4>
+                            {% comment %} <p> <a href="https://www.linkedin.com/in/suryabhan-rajput-862151284/?skipRedirect=true" target="_blank">LinkedIn Profile</a></p> {% endcomment %}
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Pune, Maharashtra, India</p>
+                        </div>
+                    </div>
+                </div>
+                <form method="POST" class="contact-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.message }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Suryabhan Girase. All Rights Reserved.</p>
+            {% comment %} <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div> {% endcomment %}
+        </div>
+    </footer>
+
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
+</body>
+</html>
